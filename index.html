@@ -132,8 +132,156 @@
 					</article>
 						
 				</section>
-		
-			
+				</section>
+				<section id="api/host">
+					<h2><i class="icon fa-arrow-circle-o-right"></i> api/host</h2>
+					<div class="row">
+						<article class="12u">
+							<blockquote>GET</blockquote>
+							<strong>Request parameters : </strong>
+							<code>NONE</code>
+							<br>
+							<strong>Return : </strong>
+<pre><code>[
+  {
+    "__v":0,
+    "_id":"584e0243af06260be7cbefb3",
+    "hostid":"12394023884",
+    "key":"4040",
+    "created":"1994-03-10"
+  },
+  {
+    "__v":0,
+    "_id":"584e0243af06260be7cbefb3",
+    "hostid":"12394023884",
+    "key":"4040",
+    "created":"1994-03-10"
+  }
+]</code></pre>
+						</article>
+					</div>
+					<article class="12u">
+							<blockquote>POST</blockquote>
+							<strong>Request parameters : </strong>
+<pre><code>{
+  "hostid":"12394023884",
+  "key":"4040",
+  "created":"1994-03-10"
+}</code></pre>
+							<br>
+							<strong>Return : </strong>
+<pre><code>{
+  "__v":0,	
+  "_id":"584e0243af06260be7cbefb3",
+  "hostid":"12394023884",
+  "key":"4040",
+  "created":"1994-03-10"
+}</code></pre>
+					</article>
+						
+				</section>
+				<section id="api/host2">
+					<h2><i class="icon fa-arrow-circle-o-right"></i> api/host/[hostid]</h2>
+					<div class="row">
+						<article class="12u">
+							<blockquote>GET</blockquote>
+							<strong>Request parameters : </strong>
+							<code>NONE</code>
+							<br>
+							<strong>Return : </strong>
+<pre><code>{
+  "__v":0,	
+  "_id":"584e0243af06260be7cbefb3",
+  "hostid":"12394023884",
+  "key":"4040",
+  "created":"1994-03-10"
+}</code></pre>
+						</article>
+					</div>
+					<article class="12u">
+							<blockquote>DELETE</blockquote>
+							<strong>Request parameters : </strong>
+							<code>NONE</code>
+							<br>
+							<strong>Return : </strong>
+<pre><code>{
+  "success": 1,
+  "message": "[hostid] Removed"
+}</code></pre>
+					</article>
+						
+				</section>
+				<section id="api/pair">
+					<h2><i class="icon fa-arrow-circle-o-right"></i> api/pair</h2>
+					<div class="row">
+						<article class="12u">
+							<blockquote>GET</blockquote>
+							<strong>Request parameters : </strong>
+							<code>NONE</code>
+							<br>
+							<strong>Return : </strong>
+<pre><code>[
+  {
+    "__v":0,
+    "_id":"584e0243af06260be7cbefb3",
+    "hostid":"12394023884",
+    "clientid":"2448284",
+    "key":"4040",
+    "created":"1994-03-10",
+  },
+  {
+    "__v":0,
+    "_id":"584e0243af06260be7cbefb3",
+    "hostid":"12394023884",
+    "clientid":"2448284",
+    "key":"4040",
+    "created":"1994-03-10"
+  }
+]</code></pre>
+						</article>
+					</div>
+					<article class="12u">
+							<blockquote>POST</blockquote>
+							<strong>Request parameters : </strong>
+<pre><code>{
+  "clientid":"2448284",
+  "key":"4040",
+  "created":"1994-03-10"
+}</code></pre>
+							<br>
+							<strong>Return : </strong>
+<pre><code>{
+  "__v":0,	
+  "_id":"584e0243af06260be7cbefb3",
+  "hostid":"12394023884",
+	"clientid":"2448284",
+  "key":"4040",
+  "created":"1994-03-10"
+}</code></pre>
+					</article>
+						
+				</section>
+				<section id="api/pair2">
+					<h2><i class="icon fa-arrow-circle-o-right"></i> api/pair/[clientid]</h2>
+					<div class="row">
+						<article class="12u">
+							<blockquote>GET</blockquote>
+							<strong>Request parameters : </strong>
+							<code>NONE</code>
+							<br>
+							<strong>Return : </strong>
+<pre><code>{
+  "__v":0,	
+  "_id":"584e0243af06260be7cbefb3",
+  "hostid":"12394023884",
+  "clientid":"2448284",
+  "key":"4040",
+  "created":"1994-03-10",
+}</code></pre>
+						</article>
+					</div>
+						
+				</section>
 		
 			
 		
