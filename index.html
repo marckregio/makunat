@@ -32,16 +32,16 @@
 						<h2>API : http://notification.smedia.com.au:4000/</h2>
 					</header>
 					<ul class="actions">							
-						<li><a href="#api/users" class="button">api/users</a></li>
-						<li><a href="#api/users2" class="button">api/users/[username]</a></li>
-						<li><a href="#api/host" class="button">api/host</a></li>
-						<li><a href="#api/host2" class="button">api/host/[hostid]</a></li>
-						<li><a href="#api/pair" class="button">api/pair</a></li>
-						<li><a href="#api/pair2" class="button">api/pair/[clientid]</a></li>
+						<li class="12u"><a href="#api/users" class="button">api/users</a></li>
+						<li class="12u"><a href="#api/users2" class="button">api/users/[username]</a></li>
+						<li class="12u"><a href="#api/host" class="button">api/host</a></li>
+						<li class="12u"><a href="#api/host2" class="button">api/host/[hostid]</a></li>
+						<li class="12u"><a href="#api/pair" class="button">api/pair</a></li>
+						<li class="12u"><a href="#api/pair2" class="button">api/pair/[clientid]</a></li>
 					</ul>
 				</section>
 			
-				<section id="#api/users">
+				<section id="api/users">
 					<h2><i class="icon fa-arrow-circle-o-right"></i> api/users</h2>
 					<div class="row">
 						<article class="12u">
@@ -94,10 +94,48 @@
     "_id": "586707e9d8a4b52bff0418f8"
   }
 }</code></pre>
-						</article>
-					</div>
+					</article>
 						
 				</section>
+				<section id="api/users2">
+					<h2><i class="icon fa-arrow-circle-o-right"></i> api/users/[username]</h2>
+					<div class="row">
+						<article class="12u">
+							<blockquote>GET</blockquote>
+							<strong>Request parameters : </strong>
+							<code>NONE</code>
+							<br>
+							<strong>Return : </strong>
+<pre><code>{
+  "success": 1,
+  "message": {
+    "registeredip": "119.92.179.194",
+    "__v": 0,
+    "registereddate": "Sat Dec 31 2016 01:20:41 GMT+0000",
+    "password": "$2a$05$ESELeQlAFebR37bRscRY1OXhiZRnUNF8TJkDceQo6bLVHtMHIRvd6",
+    "username": "anyname",
+    "_id": "586707e9d8a4b52bff0418f8"
+  }
+}</code></pre>
+						</article>
+					</div>
+					<article class="12u">
+							<blockquote>DELETE</blockquote>
+							<strong>Request parameters : </strong>
+							<code>NONE</code>
+							<br>
+							<strong>Return : </strong>
+<pre><code>{
+  "success": 1,
+  "message": "[username] Removed"
+}</code></pre>
+					</article>
+						
+				</section>
+		
+			
+		
+			
 		
 			
 			</div>
