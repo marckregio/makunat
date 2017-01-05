@@ -1,39 +1,44 @@
 var Pair = require('../models/pair');
 var Host = require('../models/host');
+var pairsuccess = 2001;
+var pairnotsuccess = 2002;
+var alreadypaired = 2003;
+var hostnotfound = 2004;
+var hoststopped = 2005;
 
 exports.postPair = function(req, res){
 	var pair = new Pair();
 	
 	
-	pair.key = req.body.key;
+	pair.hostid = req.body.hostid;
 	pair.created = req.body.created;
 	pair.clientid = req.body.clientid;
 	
-	Host.find({key: pair.key}, function(err, gethost){
+	Host.findOne({hostid: pair.hostid, activehost: true}, function(err, gethost){
 		if (err)
-			return res.json({success: 0, message:err});
-		
-		pair.hostid = gethost[0].hostid;
-		if (pair.hostid != ""){
-			Pair.find({clientid: pair.clientid, hostid: pair.hostid}, function(err, getpair){
+			return res.json({result: pairnotsuccess, message:err});
+
+		if (gethost != null){
+			pair.key = gethost[0].key;
+			Pair.findOne({clientid: pair.clientid, key: pair.key}, function(err, getpair){
 				if (err)	
-					return res.json({success: 0, message:err});
-				else if (getpair.length > 0)
-					res.json({success: 1, 
+					return res.json({success: pairnotsuccess, message:err});
+				else if (getpair != null)
+					res.json({result: alreadypaired, 
 										message: "Already Paired to Host.",
 							 			hostid: pair.hostid});
 				else 
 					pair.save(function (err){
 						if (err)	
-							return res.json({success: 0, message:err});
+							return res.json({result: pairnotsuccess, message:err});
 				
 						sendNotif(pair.hostid, pair.clientid);
-						res.json({success: 1, message: pair});
+						res.json({result: pairsuccess, message: pair});
 					});
 			});
 			
 		}	else {
-			res.json({success: 0, message:"No Hostid Found."});
+			res.json({result: hostnotfound, message:"Host not found."});
 		}
 	});
 	
@@ -50,11 +55,20 @@ exports.getPairs = function(req, res){
 }
 
 exports.getPair = function(req, res){
-	Pair.find({clientid: req.params.clientid}, function(err, pair){
+	Pair.findOne({clientid: req.params.clientid}, function(err, pair){
 		if (err)
 			return res.send(err);
 		
-		res.json(pair);
+		Host.findOne({hostid: pair.hostid, activehost:true}, function(err, gethost){
+			if (err)
+				return res.json({result: pairnotsuccess, message:err});
+
+			if (gethost != null){
+				res.json(pair);
+			} else {
+				res.json({result: hoststopped, message:"Host stopped."});
+			}
+		});
 	});
 }
 

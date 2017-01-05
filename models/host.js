@@ -9,7 +9,10 @@ var Host = new mongoose.Schema({
 	},
   created: {
     type: String
-  }
+  },
+	activehost: {
+		type: Boolean
+	}
 });
 
 module.exports = mongoose.model('Host', Host);
