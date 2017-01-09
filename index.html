@@ -42,6 +42,8 @@
 						<li class="12u"><a href="#api/host2" class="button">api/host/[hostid]</a></li>
 						<li class="12u"><a href="#api/pair" class="button">api/pair</a></li>
 						<li class="12u"><a href="#api/pair2" class="button">api/pair/[clientid]</a></li>
+						<li class="12u"><a href="#api/location" class="button">api/location</a></li>
+						<li class="12u"><a href="#api/location2" class="button">api/location/[hostid]</a></li>
 					</ul>
 				</section>
 			<!--
@@ -309,7 +311,64 @@
 					</div>
 						
 				</section>
-		
+				<section id="api/location">
+					<h2><i class="icon fa-arrow-circle-o-right"></i> api/location</h2>
+					<div class="row">
+						<article class="12u">
+							<blockquote>POST</blockquote>
+							<strong>Request parameters : </strong>
+<pre><code>{
+  "hostid": "131313",
+  "longitude": "220.000",
+  "created": "2017-01-09",
+  "latitude": "120.0000"
+}</code></pre>
+							<br>
+							<strong>Return : </strong>
+<pre><code>{
+  "_id": "5872e669b6d9270805c9ba71",
+  "hostid": "131313",
+  "longitude": "220.000",
+  "__v": 0,
+  "created": "2017-01-09",
+  "latitude": "120.0000",
+  "chronID": 1
+}</code></pre>
+						</article>
+					</div>
+						
+				</section>
+				<section id="api/location2">
+					<h2><i class="icon fa-arrow-circle-o-right"></i> api/location/[hostid]</h2>
+					<div class="row">
+						<article class="12u">
+							<blockquote>GET</blockquote>
+							<code>NONE</code><br>
+							<strong>Return : </strong>
+<pre><code>[
+  {
+    "hostid": "131313",
+    "_id": "5872e659b6d9270805c9ba70",
+    "longitude": "220.000",
+    "__v": 0,
+    "created": "2017-01-09",
+    "latitude": "120.0000",
+    "chronID": 0
+  },
+  {
+    "hostid": "131313",
+    "_id": "5872e669b6d9270805c9ba71",
+    "longitude": "220.000",
+    "__v": 0,
+    "created": "2017-01-09",
+    "latitude": "120.0000",
+    "chronID": 1
+  }
+]</code></pre>
+						</article>
+					</div>
+						
+				</section>
 			
 		
 			

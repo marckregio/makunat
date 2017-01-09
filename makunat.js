@@ -24,6 +24,7 @@ mongoose.connect('mongodb://notification.smedia.com.au:27017/makunat');
 var userController = require('./controllers/user');
 var hostController = require('./controllers/host');
 var clientController = require('./controllers/pair');
+var locationController = require('./controllers/location');
 
 //users
 router.route('/users')
@@ -45,6 +46,10 @@ router.route('/pair')
 	.post(clientController.postPair);
 router.route('/pair/:clientid')
 	.get(clientController.getPair);
+router.route('/location')
+	.post(locationController.setLocation);
+router.route('/location/:hostid')
+	.get(locationController.getLocations);
 
 
 app.use('/api', router);
