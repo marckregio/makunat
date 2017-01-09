@@ -4,8 +4,8 @@ var Pair = new mongoose.Schema({
 	hostid: {
 		type: String
 	},
-	key: {
-		type: String
+	paired: {
+		type: Boolean
 	},
   created: {
     type: String

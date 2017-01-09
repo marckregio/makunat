@@ -19,22 +19,24 @@ exports.postPair = function(req, res){
 			return res.json({result: pairnotsuccess, message:err});
 
 		if (gethost != null){
-			pair.key = gethost[0].key;
-			Pair.findOne({clientid: pair.clientid, key: pair.key}, function(err, getpair){
-				if (err)	
+			pair.paired = true;
+			Pair.findOne({clientid: pair.clientid, hostid: gethost.hostid}, function(err, getpair){
+				if (err) {
 					return res.json({success: pairnotsuccess, message:err});
-				else if (getpair != null)
-					res.json({result: alreadypaired, 
-										message: "Already Paired to Host.",
-							 			hostid: pair.hostid});
-				else 
+				}
+				else if (getpair != null){
+					res.json({result: pairsuccess, message: getpair});
+					//host to send latlong
+				} else {
 					pair.save(function (err){
 						if (err)	
 							return res.json({result: pairnotsuccess, message:err});
 				
 						sendNotif(pair.hostid, pair.clientid);
 						res.json({result: pairsuccess, message: pair});
+						//host to send latlong
 					});
+				}
 			});
 			
 		}	else {

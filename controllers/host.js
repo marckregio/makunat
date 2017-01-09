@@ -10,7 +10,7 @@ exports.postHost = function(req, res){
   var host = new Host();
   
   host.hostid = req.body.hostid;
-  host.key = uuid.v1();
+  //host.key = uuid.v1();
 	host.created = req.body.created;
 	host.activehost = true;
 	

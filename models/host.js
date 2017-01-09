@@ -4,9 +4,6 @@ var Host = new mongoose.Schema({
 	hostid: {
 		type: String
 	},
-	key: {
-		type: String
-	},
   created: {
     type: String
   },
