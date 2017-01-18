@@ -11,7 +11,9 @@ app.use(time.init);
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended:true}));
 app.use('/files', fs('/usr/lib/makunatAPI', {'icons': true}));
+app.use('/apps', fs('/usr/lib/makunatAPI/apps', {'icons': true}));
 app.use('/files', express.static("/usr/lib/makunatAPI/"));
+app.use('/apps', express.static("/usr/lib/makunatAPI/apps/"));
 
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://notification.smedia.com.au:27017/makunat');
